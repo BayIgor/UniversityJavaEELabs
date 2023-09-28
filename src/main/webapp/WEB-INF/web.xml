@@ -1,0 +1,40 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>Sss</servlet-name>
+    <servlet-class>bay.university.servlets.LR2Servlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>Ggg</servlet-name>
+    <servlet-class>bay.university.servlets.LR3Servlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Ggg</servlet-name>
+    <url-pattern>/GoGgg</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>Sss</servlet-name>
+    <url-pattern>/GoSss</url-pattern>
+  </servlet-mapping>
+
+  <context-param>
+    <param-name>URL1</param-name>
+    <param-value>/html/index.html</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>URL2</param-name>
+    <param-value>/GoGgg</param-value>
+  </context-param>
+
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

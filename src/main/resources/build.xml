@@ -1,0 +1,45 @@
+<project name="AS_1" default="deploy" basedir=".">
+    <!-- Указываем свойства для сборки -->
+    <property name="webapp.dir" value="D:\University\4Course\1sem\InetProg\LR1-10\Lab1-10\src\main\webapp" />
+    <property name="deploy.dir" value="D:\JavaProjects\Tomcat\apache-tomcat-9.0.76\webapps" />
+    <property name="context.name" value="AS_1" />
+
+    <!-- Определение свойств для удаленного развертывания-->
+    <property name="server.hostname" value="172.20.10.9"/>
+    <property name="server.username" value="your_ssh_username"/>
+    <property name="server.password" value="your_ssh_password"/>
+    <property name="remote.tomcat.path" value="E:\7sem\PI\apache-tomcat-9.0.76\webapps"/>
+
+    <!-- Очищаем директорию развертывания (если необходимо) -->
+    <target name="clean">
+        <delete dir="${deploy.dir}/${context.name}" />
+    </target>
+
+    <!-- Копируем файлы веб-приложения в директорию развертывания -->
+    <target name="copy">
+        <copy todir="${deploy.dir}/${context.name}">
+            <fileset dir="${webapp.dir}" />
+        </copy>
+    </target>
+
+    <!-- Создаем дескриптор развертывания (context.xml) -->
+    <target name="create-context">
+        <echo file="${deploy.dir}/${context.name}/META-INF/context.xml">
+            <![CDATA[
+            <?xml version="1.0" encoding="UTF-8"?>
+            <Context docBase="${deploy.dir}/${context.name}" />
+            ]]>
+        </echo>
+    </target>
+
+<!--    <target name="deploy-remote" description="Deploy application to remote server">-->
+<!--        <sshexec host="172.20.10.9" username="Nastya" password="pt6441774"-->
+<!--                 command="rm -rf D:\University\4Course\1sem\InetProg\LR1-10\Lab1-10\target\Lab1-10.war E:\7sem\PI\apache-tomcat-9.0.76\webapps\AS_1" />-->
+<!--        <scp file="D:\University\4Course\1sem\InetProg\LR1-10\Lab1-10\target\Lab1-10.war" todir="Nastya@172.20.10.9:E:\7sem\PI\apache-tomcat-9.0.76\webapps" />-->
+<!--    </target>-->
+
+    <!-- Общая цель для развертывания -->
+    <target name="deploy" depends="clean, copy, create-context">
+        <echo message="Веб-приложение ${context.name} успешно развернуто на локальном веб-сервере." />
+    </target>
+</project>

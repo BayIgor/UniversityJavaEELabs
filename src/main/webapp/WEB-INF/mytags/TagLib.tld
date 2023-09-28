@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>MyTags</short-name>
+    <uri>http://mycompany.com</uri>
+
+    <tag>
+        <name>dossier</name>
+        <tag-class>bay.university.taglib.DossierTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>action</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>surname</name>
+        <tag-class>bay.university.taglib.SurnameTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>value</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>lastname</name>
+        <tag-class>bay.university.taglib.LastnameTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
+    <tag>
+        <name>sex</name>
+        <tag-class>bay.university.taglib.SexTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>maleLabel</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>femaleLabel</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>submit</name>
+        <tag-class>bay.university.taglib.SubmitTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>okLabel</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>cancelLabel</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+</taglib>
