@@ -1,4 +1,4 @@
-package bay.university.servlets;
+package bay.university.servlets.LR7;
 
 import bay.university.wtf.CBean;
 
@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -43,11 +44,22 @@ public class CccServlet extends HttpServlet {
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String cBeanParam = request.getParameter("CBean");
+        HttpSession session = request.getSession(true); // Получаем или создаем сессию
+
         if (cBeanParam != null && cBeanParam.equals("new")) {
-            // Если параметр CBean равен "new", создать новый объект CBean
             cBean = new CBean();
-            // Обновить атрибут контекста
             getServletContext().setAttribute("atrCBean", cBean);
+        }
+        else {
+            //Task 7.1
+            cBean = (CBean) getServletContext().getAttribute("atrCBean");
+
+            //Task 7.3
+            if (session.getAttribute("cBean") != null) {
+                cBean = (CBean) session.getAttribute("cBean");
+            } else {
+                cBean = new CBean();
+            }
         }
         String value1 = request.getParameter("Value1");
         String value2 = request.getParameter("Value2");
@@ -62,5 +74,7 @@ public class CccServlet extends HttpServlet {
         if (value3 != null) {
             cBean.setValue3(value3);
         }
+
+        request.setAttribute("cBean", cBean);
     }
 }

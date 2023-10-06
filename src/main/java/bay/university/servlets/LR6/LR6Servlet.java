@@ -1,4 +1,4 @@
-package bay.university.servlets;
+package bay.university.servlets.LR6;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

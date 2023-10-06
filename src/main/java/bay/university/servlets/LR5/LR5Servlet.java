@@ -1,4 +1,4 @@
-package bay.university.servlets;
+package bay.university.servlets.LR5;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

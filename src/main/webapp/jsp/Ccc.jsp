@@ -3,6 +3,10 @@
 <%
     // Извлечение ссылки на объект CBean из атрибута контекста
     CBean cBean = (CBean) application.getAttribute("atrCBean");
+    //Task 7.1
+    //CBean cBean = (CBean) request.getAttribute("cBean");
+    //Task 7.3
+    //CBean cBean = (CBean) session.getAttribute("cBean");
 %>
 
 <!DOCTYPE html>

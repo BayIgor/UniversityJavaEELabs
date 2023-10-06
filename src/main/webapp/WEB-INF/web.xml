@@ -6,12 +6,12 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
     <servlet-name>Sss</servlet-name>
-    <servlet-class>bay.university.servlets.LR2Servlet</servlet-class>
+    <servlet-class>bay.university.servlets.LR2.LR2Servlet</servlet-class>
   </servlet>
 
   <servlet>
     <servlet-name>Ggg</servlet-name>
-    <servlet-class>bay.university.servlets.LR3Servlet</servlet-class>
+    <servlet-class>bay.university.servlets.LR3.LR3Servlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
