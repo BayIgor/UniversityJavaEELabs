@@ -27,7 +27,7 @@
         pageToInclude = "jsp/morning.jsp";
     } else if (hourOfDay >= 10 && hourOfDay < 18) {
         greeting = "Добрый день";
-        pageToInclude = "/afternoon";
+        pageToInclude = "/LR4/afternoon";
     } else {
         greeting = "Добрый вечер";
         pageToInclude = "jsp/evening.jsp";
