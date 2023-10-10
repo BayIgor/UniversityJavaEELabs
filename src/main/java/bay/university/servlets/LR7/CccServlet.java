@@ -2,13 +2,13 @@ package bay.university.servlets.LR7;
 
 import bay.university.wtf.CBean;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -52,11 +52,11 @@ public class CccServlet extends HttpServlet {
         }
         else {
             //Task 7.1
-            cBean = (CBean) getServletContext().getAttribute("atrCBean");
+//            cBean = (CBean) getServletContext().getAttribute("atrCBean");
 
             //Task 7.3
-            if (session.getAttribute("cBean") != null) {
-                cBean = (CBean) session.getAttribute("cBean");
+            if (session.getAttribute(session.getId()) != null) {
+                cBean = (CBean) session.getAttribute(session.getId());
             } else {
                 cBean = new CBean();
             }
@@ -75,6 +75,7 @@ public class CccServlet extends HttpServlet {
             cBean.setValue3(value3);
         }
 
-        request.setAttribute("cBean", cBean);
+        session.setAttribute(session.getId(), cBean);
+//      request.setAttribute("cBean", cBean);
     }
 }

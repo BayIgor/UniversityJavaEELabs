@@ -13,19 +13,19 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/Aaa")
+@WebServlet()
 public class AaaServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         // URL сервлета Bbb на удаленном сервере, заменить localhost на адрес удаленного сервера
-        String remoteServerUrl = "http://localhost:8080/AS_1/Bbb";
+        String remoteServerUrl = "http://localhost:8081/AS_1/Bbb";
 
         String param1 = "param1Value";
         String param2 = "param2Value";
@@ -40,10 +40,9 @@ public class AaaServlet extends HttpServlet {
 
         // Выполняем HTTP-запрос POST к сервлету Bbb на удаленном сервере
         HttpClient httpClient = HttpClients.createDefault();
+        String params = "?param1=" + param1 + "&param2=" + param2 + "&param3=" + param3;
+        remoteServerUrl+=params;
         HttpPost httpPost = new HttpPost(remoteServerUrl);
-        String params = "param1=" + param1 + "&param2=" + param2 + "&param3=" + param3;
-        StringEntity paramsEntity = new StringEntity(params);
-        httpPost.setEntity(paramsEntity);
 
         httpPost.addHeader(header1Name, header1Value);
         httpPost.addHeader(header2Name, header2Value);

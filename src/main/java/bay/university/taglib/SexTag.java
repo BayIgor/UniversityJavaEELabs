@@ -1,7 +1,7 @@
 package bay.university.taglib;
 
-import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.tagext.BodyTagSupport;
+import jakarta.servlet.jsp.JspException;
+import jakarta.servlet.jsp.tagext.BodyTagSupport;
 
 public class SexTag extends BodyTagSupport {
     private String maleLabel;
